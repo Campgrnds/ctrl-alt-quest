@@ -1,0 +1,147 @@
+{
+  "_note": "Excerpt showing the schema. The full question bank is kept out of this public repo so students can't read the answer key.",
+  "game": {
+    "title": "CTRL + ALT + COMPETE",
+    "subtitle": "7th Grade Computer Science Review: Units 1 & 2",
+    "version": "1.0",
+    "grade": 7,
+    "units": [
+      "Unit 1: Computing Systems",
+      "Unit 2: Networks and the Internet"
+    ]
+  },
+  "defaults": {
+    "teamsMin": 2,
+    "teamsMax": 6,
+    "answerTimerSeconds": 30,
+    "stealTimerSeconds": 15,
+    "finalTimerSeconds": 60,
+    "stealValueMultiplier": 0.5,
+    "wrongAnswerPenalty": false,
+    "turnOrder": "rotate",
+    "lowScoreWagerCap": 500
+  },
+  "rounds": [
+    {
+      "id": "r1",
+      "name": "BOOT UP",
+      "unit": "Unit 1: Computing Systems",
+      "values": [
+        100,
+        200,
+        300,
+        400,
+        500
+      ],
+      "specialTiles": {
+        "systemOverride": 1,
+        "allHands": 1,
+        "placement": "random",
+        "excludeLowestRow": true
+      },
+      "categories": [
+        {
+          "id": "r1c1",
+          "name": "Hardware Hunt",
+          "blurb": "The physical parts inside the machine",
+          "standard": "8.1.8.CS.1, 8.1.8.CS.2",
+          "questions": [
+            {
+              "id": "r1c1q1",
+              "value": 100,
+              "type": "mc",
+              "prompt": "Which part is often called the \"brain\" of the computer?",
+              "choices": [
+                "RAM",
+                "CPU",
+                "Power supply",
+                "Monitor"
+              ],
+              "answerIndex": 1,
+              "answer": "CPU",
+              "explanation": "The CPU (Central Processing Unit) reads and carries out the instructions that make every program run."
+            },
+            {
+              "id": "r1c1q2",
+              "value": 200,
+              "type": "mc",
+              "prompt": "What is the main circuit board that connects all of a computer's parts together?",
+              "choices": [
+                "Hard drive",
+                "Graphics card",
+                "Motherboard",
+                "Keyboard"
+              ],
+              "answerIndex": 2,
+              "answer": "Motherboard",
+              "explanation": "The CPU, RAM, storage, and expansion cards all plug into the motherboard so they can talk to each other."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "final": {
+    "name": "FINAL BYTE",
+    "category": "Bits Meet the Internet",
+    "primary": {
+      "id": "fb1",
+      "type": "short",
+      "prompt": "An IPv4 address is made of 4 bytes. How many BITS is an IPv4 address in total?",
+      "answer": "32",
+      "accept": [
+        "32",
+        "thirty-two"
+      ],
+      "explanation": "4 bytes × 8 bits per byte = 32 bits. Unit 1 math, Unit 2 addresses."
+    },
+    "backups": [
+      {
+        "id": "fb2",
+        "type": "short",
+        "prompt": "A photo, a song, and an encrypted HTTPS web page are all sent across the internet in packets. Underneath it all, every packet is made of what?",
+        "answer": "Bits (binary 1s and 0s)",
+        "accept": [
+          "bits",
+          "binary",
+          "1s and 0s",
+          "ones and zeros"
+        ],
+        "explanation": "No matter what the data is, the computer represents it in binary."
+      },
+      {
+        "id": "fb3",
+        "type": "short",
+        "prompt": "What does each letter stand for in CPU and in DNS?",
+        "answer": "CPU = Central Processing Unit. DNS = Domain Name System.",
+        "accept": [
+          "Central Processing Unit AND Domain Name System (both required)"
+        ],
+        "explanation": "One acronym from each unit. Both must be correct."
+      }
+    ]
+  },
+  "tiebreakers": [
+    {
+      "id": "tb1",
+      "mode": "fastest",
+      "prompt": "Convert binary 11111 to decimal.",
+      "answer": "31",
+      "explanation": "16 + 8 + 4 + 2 + 1 = 31"
+    }
+  ],
+  "spares": [
+    {
+      "categoryId": "r1c1",
+      "value": 200,
+      "type": "short",
+      "prompt": "What is the small, oval, reversible connector used to charge most new phones and laptops?",
+      "answer": "USB-C",
+      "accept": [
+        "USB-C",
+        "USB Type-C"
+      ],
+      "explanation": "USB-C carries power, data, and even video through one cable."
+    }
+  ]
+}

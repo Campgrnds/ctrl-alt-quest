@@ -1,0 +1,10 @@
+.herenow/
+.impeccable/
+.DS_Store
+__pycache__/
+# Real question banks kept private so students cannot read the answer key (see samples/)
+src/questions-units.json
+src/questions-pop.json
+src/mc-conversions.json
+# Full-size art originals (web versions are in site/assets/)
+src/art-originals/

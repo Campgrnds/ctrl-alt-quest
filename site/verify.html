@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check a Score Report | CTRL + ALT + QUEST</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .v-wrap { max-width: 620px; margin: 6vh auto; padding: 0 16px; }
+  .v-card { padding: 28px; display: grid; gap: 16px; }
+  .v-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .result { padding: 14px 16px; border-radius: 12px; font-weight: 700; }
+  .result.ok { background: var(--good-soft); color: var(--good); }
+  .result.no { background: var(--bad-soft); color: var(--bad); }
+  @media (max-width: 520px) { .v-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="v-wrap">
+  <form class="card v-card" id="f">
+    <h1 class="display" style="font-size:1.6rem">Check a score report</h1>
+    <p class="muted">For teachers. Copy the values from the student's PDF. If the check code matches, the report wasn't edited.</p>
+    <div class="field"><label for="n">Student name (exactly as printed)</label><input id="n" required></div>
+    <div class="v-grid">
+      <div class="field"><label for="s">Score</label><input id="s" inputmode="numeric" required placeholder="48,250"></div>
+      <div class="field"><label for="d">Date (in the check code box)</label><input id="d" required placeholder="2026-10-15"></div>
+      <div class="field"><label for="c">Correct</label><input id="c" inputmode="numeric" required placeholder="127"></div>
+      <div class="field"><label for="a">Answered</label><input id="a" inputmode="numeric" required placeholder="155"></div>
+    </div>
+    <div class="field"><label for="k">Check code</label><input id="k" required placeholder="ABC-123" style="font-family:var(--f-mono);text-transform:uppercase"></div>
+    <button class="btn" type="submit">Check</button>
+    <div id="out" class="result" hidden></div>
+  </form>
+</div>
+<script>
+  // must match checkCode() in app.js
+  function hash(str) { let h = 0x811c9dc5; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193); } return h >>> 0; }
+  function checkCode(name, score, correct, answered, date) {
+    const h = hash([name.trim().toLowerCase(), score, correct, answered, date, 'caq|7th|steam'].join('|'));
+    const s = h.toString(36).toUpperCase().padStart(7, '0').slice(-6);
+    return s.slice(0, 3) + '-' + s.slice(3);
+  }
+  const num = id => parseInt(document.getElementById(id).value.replace(/[^0-9]/g, ''), 10) || 0;
+  document.getElementById('f').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('n').value.trim().replace(/\s+/g, ' ');
+    const code = checkCode(name, num('s'), num('c'), num('a'), document.getElementById('d').value.trim());
+    const given = document.getElementById('k').value.trim().toUpperCase();
+    const out = document.getElementById('out');
+    out.hidden = false;
+    out.className = 'result ' + (code === given ? 'ok' : 'no');
+    out.textContent = code === given ? 'Match. This report looks genuine.' : 'No match. Double-check what you typed. If it still fails, the report may have been edited.';
+  });
+</script>
+</body>
+</html>

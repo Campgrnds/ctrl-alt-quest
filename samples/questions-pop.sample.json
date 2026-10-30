@@ -1,0 +1,144 @@
+{
+  "_note": "Excerpt showing the schema. The full question bank is kept out of this public repo so students can't read the answer key.",
+  "game": {
+    "title": "CTRL + ALT + COMPETE",
+    "subtitle": "7th Grade STEAM Review: Pop Culture Edition",
+    "version": "2.0-pop",
+    "grade": 7,
+    "units": [
+      "Round 1: Games, Screens & Gadgets",
+      "Round 2: Space, Heroes & Internet Culture"
+    ]
+  },
+  "defaults": {
+    "teamsMin": 2,
+    "teamsMax": 6,
+    "answerTimerSeconds": 30,
+    "stealTimerSeconds": 15,
+    "finalTimerSeconds": 60,
+    "stealValueMultiplier": 0.5,
+    "wrongAnswerPenalty": false,
+    "turnOrder": "rotate",
+    "lowScoreWagerCap": 500
+  },
+  "rounds": [
+    {
+      "id": "r1",
+      "name": "PLAYER ONE",
+      "unit": "Round 1: Games, Screens & Gadgets",
+      "values": [
+        100,
+        200,
+        300,
+        400,
+        500
+      ],
+      "specialTiles": {
+        "systemOverride": 1,
+        "allHands": 1,
+        "placement": "random",
+        "excludeLowestRow": true
+      },
+      "categories": [
+        {
+          "id": "r1c1",
+          "name": "Game Dev Lab",
+          "blurb": "The tech behind your favorite games",
+          "standard": "STEAM: Technology",
+          "questions": [
+            {
+              "id": "r1c1q1",
+              "value": 100,
+              "type": "mc",
+              "prompt": "Mario, the most famous plumber in video games, was created by which company?",
+              "choices": [
+                "Sony",
+                "Nintendo",
+                "Microsoft",
+                "Sega"
+              ],
+              "answerIndex": 1,
+              "answer": "Nintendo",
+              "explanation": "Mario first showed up in the 1981 arcade game Donkey Kong, where he was called Jumpman."
+            },
+            {
+              "id": "r1c1q2",
+              "value": 200,
+              "type": "mc",
+              "prompt": "Every image in a video game is made of tiny dots of color on the screen. What are those dots called?",
+              "choices": [
+                "Packets",
+                "Pixels",
+                "Atoms",
+                "Bytes"
+              ],
+              "answerIndex": 1,
+              "answer": "Pixels",
+              "explanation": "Pixel is short for picture element. A 1080p screen has about 2 million of them."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "final": {
+    "name": "FINAL BYTE",
+    "category": "Retro Game Math",
+    "primary": {
+      "id": "fb1",
+      "type": "short",
+      "prompt": "The original Super Mario Bros. ran on the NES, an 8-bit console. How many different values can 8 bits represent?",
+      "answer": "256",
+      "accept": [
+        "256"
+      ],
+      "explanation": "Each bit doubles the options: 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 256 (the values 0 to 255)."
+    },
+    "backups": [
+      {
+        "id": "fb2",
+        "type": "short",
+        "prompt": "A pixel art sprite is 16 pixels wide and 16 pixels tall. How many pixels does it have in total?",
+        "answer": "256",
+        "accept": [
+          "256"
+        ],
+        "explanation": "16 × 16 = 256. Many classic game characters were drawn on grids this small."
+      },
+      {
+        "id": "fb3",
+        "type": "short",
+        "prompt": "A movie trailer plays at 24 frames per second and lasts exactly 2 minutes. How many frames is that?",
+        "answer": "2,880",
+        "accept": [
+          "2880",
+          "2,880"
+        ],
+        "explanation": "2 minutes = 120 seconds. 120 × 24 = 2,880 frames."
+      }
+    ]
+  },
+  "tiebreakers": [
+    {
+      "id": "tb1",
+      "mode": "fastest",
+      "prompt": "A movie runs at 24 frames per second. How many frames are in a 5-second clip?",
+      "answer": "120",
+      "explanation": "24 × 5 = 120"
+    }
+  ],
+  "spares": [
+    {
+      "categoryId": "r1c1",
+      "value": 300,
+      "type": "short",
+      "prompt": "What do programmers call a mistake in the code that makes a game glitch or crash?",
+      "answer": "A bug",
+      "accept": [
+        "bug",
+        "glitch"
+      ],
+      "explanation": "In 1947, Grace Hopper's team found an actual moth stuck in a computer and taped it in their logbook."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "_note": "Short-answer questions converted to multiple choice for solo auto-grading. The FIRST choice is always the correct one; the game shuffles them. Keys: U = Units 1-2 bank, P = Pop Culture bank. spareN = Nth item in that bank's spares list.",
+  "U:r1c1q4": [
+    "Graphics Processing Unit: it draws images, video, and graphics",
+    "General Power Unit: it sends electricity to the parts",
+    "Global Program Updater: it installs software updates",
+    "Graphics Printing Unit: it sends pictures to the printer"
+  ],
+  "U:r1c1q5": [
+    "A heat sink or fan, because too much heat can slow down or damage the CPU",
+    "The RAM, because heat erases your saved files",
+    "The monitor, because heat makes the screen too bright",
+    "The keyboard, because heat makes the keys stick"
+  ]
+}
